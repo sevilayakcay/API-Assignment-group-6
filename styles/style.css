@@ -20,7 +20,9 @@ body {
 	align-items: center;
 	justify-content: space-evenly;
 }
-
+.logo{
+	cursor: pointer;
+}
 .fa-solid .fa-utensils{
 	height: 60px;
 	width: 60px;
