@@ -1,0 +1,11 @@
+.main_menu {
+	background-image: url('../images/menu_bg.avif');
+	background-size: cover;
+	background-position: left;
+	background-repeat: no-repeat;
+	width: 100%;
+	min-height: 100vh;
+	/* color: aliceblue; */
+	display: flex;
+	letter-spacing: 0.2px;
+}
