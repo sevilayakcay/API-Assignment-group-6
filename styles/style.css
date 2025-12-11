@@ -17,16 +17,16 @@ body {
 	height: 120px;
 	display: flex;
 	justify-content: space-between;
+	padding: 0 2rem 0 2rem;
 	background-color: black;
 	align-items: center;
-	justify-content: space-evenly;
 }
 
 .logo {
 	cursor: pointer;
 	border-radius: 40%;
 	background-color: hsl(60, 9%, 77%, 0.3);
-	padding: 20px;
+	padding: 15px;
 }
 
 .fa-solid .fa-utensils {
@@ -51,9 +51,7 @@ body {
 	background-color: rgba(0, 0, 0, 0.9);
 	box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
 	border: 2px solid rgba(211, 103, 14, 0.9);
-	;
 }
-
 
 .main {
 	background-image: url("../images/foodmenu.jpg");
@@ -65,6 +63,7 @@ body {
 	color: aliceblue;
 	display: flex;
 	letter-spacing: 0.2px;
+	flex-direction: column;
 }
 
 .main-content {
@@ -72,7 +71,7 @@ body {
 	border-radius: 20px;
 	text-align: center;
 	max-width: 80%;
-	margin: auto;
+	margin: 8rem auto auto auto;
 	padding: 1em;
 }
 
@@ -83,6 +82,19 @@ body {
 .main-para {
 	font-size: 1rem;
 	line-height: 1.6;
+}
+
+.hidden {
+	display: none;
+}
+
+.meal-of-the-day_div {
+	background-color: hsl(60, 9%, 77%, 0.3);
+	border-radius: 20px;
+	text-align: center;
+	max-width: 80%;
+	margin: 1rem auto auto auto;
+	padding: 1em;
 }
 
 @media screen and (min-width:769px) {
