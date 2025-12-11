@@ -3,6 +3,7 @@ const mealOfDayDiv = document.querySelector(".meal-of-the-day_div");
 const mealButton = document.querySelector(".meal-btn");
 const mealImage = document.querySelector(".meal-image");
 const mealName = document.querySelector(".meal-of-the-day-title");
+
 const fetchRandomMeal = async () => {
   try {
     randomMealApi;
