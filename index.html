@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -7,25 +7,45 @@
     <script type="module" src="./scripts/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet" />
-    <script src="https://kit.fontawesome.com/d5b1bff668.js" crossorigin="anonymous"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://kit.fontawesome.com/d5b1bff668.js"
+      crossorigin="anonymous"
+    ></script>
     <title>Restaurant</title>
   </head>
   <body>
     <header class="header">
       <div class="logo">
-        <i class="fa-solid fa-utensils fa-3x" style="color: #ffd43b"></i>
+        <a href="/">
+          <i class="fa-solid fa-utensils fa-3x" style="color: #ffd43b"></i>
+        </a>
       </div>
       <nav class="navbar">
-        <button class="button">Menu</button>
-        <button class="button">Drinks</button>
+        <a href="/menu.html">
+          <button class="button">Menu</button>
+        </a>
+        <a href="/drinks.html">
+          <button class="button">Drinks</button>
+        </a>
       </nav>
     </header>
     <main class="main">
       <div class="main-content">
         <h1 class="main-title">WELCOME TO OUR RESTAURANT</h1>
-        <p class="main-para">Welcome to our cosy corner of good food and comfort. Here, time slows down, flavors speak louder, and every smile matters. Sit back, unwind, and enjoy.</p>
+        <p class="main-para">
+          Welcome to our cosy corner of good food and comfort. Here, time slows
+          down, flavors speak louder, and every smile matters. Sit back, unwind,
+          and enjoy.
+        </p>
         <button class="button meal-btn">Meal of the day</button>
+      </div>
+      <div class="meal-of-the-day_div hidden">
+        <h3 class="meal-of-the-day-title"></h3>
+        <img class="meal-image" />
       </div>
     </main>
   </body>
