@@ -28,14 +28,22 @@
 	padding: 20px;
 }
 
+
+.meal-btn.active {
+	background-color: #000000;
+	color: white;
+	box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
+	border: 2px solid rgba(211, 103, 14, 0.9);
+	transform: scale(1.1);
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
 @media screen and (min-width:769px) {
 	.category-buttons {
 		grid-template-columns: repeat(2, 1fr);
 	}
 
 	.main-content-menu {
-		max-width: 70%;
+		max-width: 80%;
 	}
-
-
 }

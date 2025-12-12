@@ -11,7 +11,14 @@ async function loadCategories() {
       btn.className = "button meal-btn";
       btn.textContent = cat.strCategory;
 
-      btn.addEventListener("click", () => loadMealsByCategory(cat.strCategory));
+      btn.addEventListener("click", () => {
+        const allBtns = container.querySelectorAll(".button");
+        allBtns.forEach(b => b.classList.remove("active"));
+
+        btn.classList.add("active");
+
+        loadMealsByCategory(cat.strCategory);
+      });
 
       container.appendChild(btn);
     });
@@ -31,14 +38,17 @@ async function loadMealsByCategory(category) {
     const mealList = document.getElementById("mealList");
     mealList.innerHTML = "";
 
-    data.meals.forEach(meal => {
+    const shuffled = data.meals.sort(() => 0.5 - Math.random());
+    const mealsToShow = shuffled.slice(0, 10);
+
+    mealsToShow.forEach(meal => {
       const card = document.createElement("div");
       card.className = "meal-card";
 
       card.innerHTML = `
-            <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-            <h3>${meal.strMeal}</h3>
-          `;
+              <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+              <h3>${meal.strMeal}</h3>
+            `;
 
       mealList.appendChild(card);
     });
