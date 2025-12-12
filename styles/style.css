@@ -92,6 +92,7 @@ body {
 .meal-section {
 	background-color: black;
 	background-size: cover;
+	padding: 30px;
 }
 
 .meal-of-the-day_div {
@@ -105,6 +106,11 @@ body {
 
 .meal-of-the-day_div:hover {
 	border: 2px solid rgb(255, 234, 0);
+}
+
+.detail-btn {
+	width: 50%;
+	margin: auto;
 }
 
 .meal-image {
