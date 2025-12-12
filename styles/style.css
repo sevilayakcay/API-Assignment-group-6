@@ -89,13 +89,33 @@ body {
 	display: none;
 }
 
+.meal-section {
+	background-color: black;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
 .meal-of-the-day_div {
 	background-color: hsl(60, 9%, 77%, 0.3);
 	border-radius: 20px;
 	text-align: center;
-	max-width: 80%;
-	margin: 1rem auto auto auto;
+	max-width: 50%;
+	margin: auto;
 	padding: 1em;
+}
+
+.meal-image {
+	width: 90%;
+	height: 90%;
+}
+
+.meal-details-div {
+	background-color: hsla(55, 100%, 50%, 0.3);
+	color: antiquewhite;
+	width: 90%;
+	margin: auto;
+	text-align: start;
+	list-style: none;
 }
 
 @media screen and (min-width:769px) {
