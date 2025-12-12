@@ -3,7 +3,9 @@ const mealButton = document.querySelector(".meal-btn");
 const mealOfDayDiv = document.querySelector(".meal-of-the-day_div");
 const mealImage = document.querySelector(".meal-image");
 const mealName = document.querySelector(".meal-of-the-day-title");
+const mealSection = document.querySelector(".meal-section");
 const mealDetailsDiv = document.querySelector(".meal-details-div");
+const mealDetailBtn = document.querySelector(".detail-btn");
 let currentMeal = null;
 
 const fetchRandomMeal = async () => {
@@ -31,10 +33,11 @@ const fetchRandomMeal = async () => {
 
 const showMealOfDay = () => {
   mealOfDayDiv.classList.remove("hidden");
+  mealSection.classList.add("hidden")
 }
 
 const showMealDetails = () => {
-  mealDetailsDiv.classList.remove("hidden");
+  mealSection.classList.remove("hidden");
 }
 
 const fetchMealDetails = () => {
@@ -73,7 +76,7 @@ mealButton.addEventListener("click", () => {
   fetchRandomMeal();
 })
 
-mealOfDayDiv.addEventListener("click", () => {
+mealDetailBtn.addEventListener("click", () => {
   showMealDetails();
   fetchMealDetails();
 })

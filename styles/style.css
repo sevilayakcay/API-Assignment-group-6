@@ -91,8 +91,8 @@ body {
 
 .meal-section {
 	background-color: black;
-	padding-top: 20px;
-	padding-bottom: 20px;
+	background-size: cover;
+	padding: 30px;
 }
 
 .meal-of-the-day_div {
@@ -104,9 +104,17 @@ body {
 	padding: 1em;
 }
 
+.meal-of-the-day_div:hover {
+	border: 2px solid rgb(255, 234, 0);
+}
+
+.detail-btn {
+	width: 50%;
+	margin: auto;
+}
+
 .meal-image {
 	width: 90%;
-	height: 90%;
 }
 
 .meal-details-div {
@@ -116,6 +124,8 @@ body {
 	margin: auto;
 	text-align: start;
 	list-style: none;
+	padding: 1rem;
+	border-radius: 10px;
 }
 
 @media screen and (min-width:769px) {
@@ -130,6 +140,24 @@ body {
 	.main-para {
 		font-size: 2rem;
 		line-height: 1.6;
+	}
+
+	.meal-of-the-day_div {
+		background-color: hsl(60, 9%, 77%, 0.3);
+		border-radius: 20px;
+		text-align: center;
+		max-width: 20%;
+		margin: auto;
+		padding: 1em;
+	}
+
+	.meal-details-div {
+		background-color: hsla(55, 100%, 50%, 0.3);
+		color: antiquewhite;
+		width: 60%;
+		margin: auto;
+		text-align: start;
+		list-style: none;
 	}
 
 	.button {
