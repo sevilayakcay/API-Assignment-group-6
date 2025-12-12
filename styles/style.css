@@ -104,6 +104,11 @@ body {
 	padding: 1em;
 }
 
+.meal-image {
+	width: 90%;
+	height: 90%;
+}
+
 .meal-details-div {
 	background-color: hsla(55, 100%, 50%, 0.3);
 	color: antiquewhite;

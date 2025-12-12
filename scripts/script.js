@@ -22,8 +22,6 @@ const fetchRandomMeal = async () => {
     currentMeal = randomMealData.meals[0];
 
     mealImage.setAttribute("src", currentMeal.strMealThumb);
-    mealImage.setAttribute("height", 200);
-    mealImage.setAttribute("width", 200);
     mealName.textContent = randomMealData.meals[0].strMeal;
   }
   catch (error) {
