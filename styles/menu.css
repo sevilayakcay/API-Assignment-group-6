@@ -22,7 +22,20 @@
 }
 
 .category-buttons {
-	display: flex;
-	flex-direction: column;
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 10px;
 	padding: 20px;
+}
+
+@media screen and (min-width:769px) {
+	.category-buttons {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.main-content-menu {
+		max-width: 70%;
+	}
+
+
 }
