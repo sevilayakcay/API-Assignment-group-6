@@ -1,11 +1,10 @@
 .main_drinks {
   background-image: url("../images/drinks.jpg");
   background-size: cover;
-  background-position: left;
+  background-position: center;
   background-repeat: no-repeat;
   width: 100%;
   min-height: 100vh;
-  /* color: aliceblue; */
   display: flex;
   letter-spacing: 0.2px;
 }
@@ -32,4 +31,6 @@ img {
 
     margin-bottom: 1rem;
   }
+
+ 
 }
