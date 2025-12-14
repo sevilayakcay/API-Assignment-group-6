@@ -1,4 +1,16 @@
-//alert("drinks!");
+$(document).ready(function(){
+
+ 
+  $('.button').click(function(){
+
+    $('#bg_audio')[0].play();
+    $('#bg_audio').volume=0.4;
+
+  
+  });
+});
+
+
 const btnAlcoholic = document.getElementById("btn-alc");
 const btnNonAlcoholic = document.getElementById("btn-non-alc");
 const btnChefSpecial = document.getElementById("btn-chef-spec");
