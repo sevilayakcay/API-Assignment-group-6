@@ -35,6 +35,30 @@ img {
   padding: 1rem;
 }
 
+#input {
+  color: rgb(55, 49, 49);
+  background-color: hsla(53, 100%, 50%, 0.9);
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  width: 50%;
+  margin: 1rem;
+  outline: none;
+}
+
+p {
+  padding: 0.5rem;
+}
+
+#input:hover {
+  color: rgb(253, 216, 7);
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
+  border: 2px solid rgba(211, 103, 14, 0.9);
+}
+
 @media screen and (max-width: 768px) {
   .button {
     margin: 0.5rem;
