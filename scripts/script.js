@@ -111,7 +111,7 @@ function renderMeals(meals) {
 
 function displayNoResults() {
   const mealList = document.getElementById("mealList");
-  mealList.innerHTML = "<p>No meals found 😢</p>";
+  mealList.innerHTML = "<p>No meal found 😢</p>";
 }
 
 function saveSearch(searchTerm) {
