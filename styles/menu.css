@@ -70,12 +70,23 @@
 
 
 .meal-input {
-	height: 50px;
-	max-width: 90%;
-	font-size: 1.5rem;
+	color: rgb(55, 49, 49);
+	background-color: hsla(53, 100%, 50%, 0.9);
+	padding: 10px;
+	font-size: 1rem;
+	border-radius: 10px;
 	text-decoration: none;
 	border: none;
-	border-radius: 20px;
+	width: 50%;
+	margin: 1rem;
+	outline: none;
+}
+
+.meal-input:hover {
+	color: rgb(253, 216, 7);
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
+	border: 2px solid rgba(211, 103, 14, 0.9);
 }
 
 .suggestion-item img {
