@@ -15,6 +15,8 @@
   object-fit: cover;
   transform: translate(-50%, -50%);
   z-index: -1;
+  display: block;
+ 
 }
 
 .main-content {
@@ -23,6 +25,7 @@
   z-index: 1;
   text-align: center;
   color: aliceblue;
+  
 }
 
 img {
@@ -33,6 +36,11 @@ img {
 
 .display {
   padding: 1rem;
+}
+
+.hide{
+
+  display: none;
 }
 
 #input {
@@ -50,6 +58,17 @@ img {
 
 p {
   padding: 0.5rem;
+}
+
+#drinks_container{
+
+  
+  overflow: hidden;
+}
+
+#drinks_container p{
+margin: 4px 0;
+  color: white;
 }
 
 #input:hover {
