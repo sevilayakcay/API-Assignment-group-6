@@ -6,6 +6,7 @@ const mealName = document.querySelector(".meal-of-the-day-title");
 const mealSection = document.querySelector(".meal-section");
 const mealDetailsDiv = document.querySelector(".meal-details-div");
 const mealDetailBtn = document.querySelector(".detail-btn");
+const arrowIcon = document.getElementById("hidden");
 let currentMeal = null;
 
 const fetchRandomMeal = async () => {
@@ -17,10 +18,6 @@ const fetchRandomMeal = async () => {
     }
 
     const randomMealData = await response.json();
-    //console.log(randomMealData)
-    console.log(randomMealData.meals[0])
-    //console.log(randomMealData.meals[0].strMeal);
-
     currentMeal = randomMealData.meals[0];
 
     mealImage.setAttribute("src", currentMeal.strMealThumb);
@@ -73,8 +70,10 @@ const fetchMealDetails = () => {
 mealButton.addEventListener("click", () => {
   showMealOfDay();
   fetchRandomMeal();
+
+  arrowIcon.style.display = "none";
 })
-const arrowIcon = document.getElementById("hidden");
+
 mealDetailBtn.addEventListener("click", () => {
   showMealDetails();
   fetchMealDetails();
