@@ -38,6 +38,56 @@
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.menu-search-div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: hsla(30, 2%, 17%, 0.6);
+	border-radius: 20px;
+	padding-top: 20px;
+}
+
+.search-btn {
+	color: rgb(55, 49, 49);
+	background-color: hsla(42, 100%, 84%, 0.9);
+	padding: 10px;
+	font-size: 1rem;
+	border-radius: 10px;
+	text-decoration: none;
+	margin-top: 40px;
+	height: 50px;
+	width: 150px;
+	font-size: 1.5rem;
+}
+
+
+.search-btn:hover {
+	color: rgb(253, 216, 7);
+	background-color: rgba(0, 0, 0, 0.9);
+	box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
+	border: 2px solid rgba(211, 103, 14, 0.9);
+}
+
+
+.meal-input {
+	height: 50px;
+	max-width: 90%;
+	font-size: 1.5rem;
+	text-decoration: none;
+	border: none;
+	border-radius: 20px;
+}
+
+.suggestion-item img {
+	width: 120px;
+	height: 120px;
+	object-fit: cover;
+	border-radius: 8px;
+	cursor: pointer;
+	margin: 5px;
+}
+
+
 @media screen and (min-width:769px) {
 	.category-buttons {
 		grid-template-columns: repeat(2, 1fr);
