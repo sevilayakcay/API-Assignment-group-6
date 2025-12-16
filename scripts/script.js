@@ -7,6 +7,7 @@ const mealSection = document.querySelector(".meal-section");
 const mealDetailsDiv = document.querySelector(".meal-details-div");
 const mealDetailBtn = document.querySelector(".detail-btn");
 const arrowIcon = document.getElementById("hidden");
+const mealSearchInput = document.querySelector(".searchInput");
 let currentMeal = null;
 
 const fetchRandomMeal = async () => {
@@ -66,6 +67,73 @@ const fetchMealDetails = () => {
     </div>
   `;
 }
+
+mealSearchInput.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    const query = searchInput.value.trim();
+    if (!query) return;
+
+    fetchMeals(query);
+    saveSearch(query);
+  }
+});
+
+async function fetchMeals(searchTerm) {
+  try {
+    const response = await fetch(
+      `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchTerm}`
+    );
+
+    const data = await response.json();
+
+    if (!data.meals) {
+      displayNoResults();
+      return;
+    }
+
+    renderMeals([data.meals[0]]);
+  } catch (error) {
+    console.error("Error fetching meals:", error);
+  }
+}
+
+function renderMeals(meals) {
+  const mealList = document.getElementById("mealList");
+
+  mealList.innerHTML = meals
+    .map(
+      meal => `
+      <h3>Searched meal</h3>
+      <p class="mealSearch-title">${meal.strMeal}</p>`
+    )
+    .join("");
+}
+
+function displayNoResults() {
+  const mealList = document.getElementById("mealList");
+  mealList.innerHTML = "<p>No meals found 😢</p>";
+}
+
+function saveSearch(searchTerm) {
+  let searches = JSON.parse(localStorage.getItem("mealSearches")) || [];
+
+  const normalized = searchTerm.toLowerCase();
+
+  if (!searches.includes(normalized)) {
+    searches.unshift(normalized);
+  }
+
+  searches = searches.slice(0, 5);
+
+  localStorage.setItem("mealSearches", JSON.stringify(searches));
+}
+
+function loadSearches() {
+  const searches = JSON.parse(localStorage.getItem("mealSearches")) || [];
+  console.log("Previous searches:", searches);
+}
+
+loadSearches();
 
 mealButton.addEventListener("click", () => {
   showMealOfDay();
