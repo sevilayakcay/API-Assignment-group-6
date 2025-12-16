@@ -46,6 +46,7 @@ body {
 
 .meal-btn {
   margin: 30px;
+  cursor: pointer;
 }
 
 .button:hover {
@@ -81,6 +82,12 @@ body {
   margin: 1rem;
   outline: none;
 }
+
+.search-list:hover {
+  cursor: pointer;
+
+}
+
 
 .main-content {
   background-color: hsl(60, 9%, 77%, 0.3);
