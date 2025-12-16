@@ -67,7 +67,7 @@ let debounceTimeout;
 
 mealInput.addEventListener("input", () => {
   clearTimeout(debounceTimeout);
-  t;
+
   debounceTimeout = setTimeout(() => {
     const mealNameInput = mealInput.value.trim();
     fetchMeals(mealNameInput);
