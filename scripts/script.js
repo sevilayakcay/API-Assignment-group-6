@@ -42,7 +42,6 @@ const showMealDetails = () => {
 
 const fetchMealDetails = () => {
   if (!currentMeal) return;
-
   const ingredients = [];
   const instructions = currentMeal.strInstructions;
   for (let i = 1; i <= 20; i++) {
@@ -75,9 +74,12 @@ mealButton.addEventListener("click", () => {
   showMealOfDay();
   fetchRandomMeal();
 })
-
+const arrowIcon = document.getElementById("hidden");
 mealDetailBtn.addEventListener("click", () => {
   showMealDetails();
   fetchMealDetails();
+
+  arrowIcon.style.display = "block";
+  arrowIcon.style.margin = "20px";
 })
 

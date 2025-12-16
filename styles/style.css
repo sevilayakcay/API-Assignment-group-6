@@ -64,6 +64,7 @@ body {
 	height: 100vh;
 	color: aliceblue;
 	display: flex;
+	flex-direction: column;
 	letter-spacing: 0.2px;
 	background-attachment: fixed;
 }
@@ -87,6 +88,10 @@ body {
 }
 
 .hidden {
+	display: none;
+}
+
+#hidden {
 	display: none;
 }
 
