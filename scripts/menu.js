@@ -111,16 +111,3 @@ async function fetchMeals(mealNameInput) {
     console.error(error);
   }
 }
-
-const displayMeals = meals => {
-  mealList.innerHTML = "";
-  meals.forEach(meal => {
-    const mealCard = document.createElement("div");
-    mealCard.className = "meal-card";
-    mealCard.innerHTML = `
-      <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-      <h3>${meal.strMeal}</h3>
-    `;
-    mealList.appendChild(mealCard);
-  });
-};
