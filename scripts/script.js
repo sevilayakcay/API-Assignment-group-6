@@ -8,6 +8,8 @@ const mealDetailsDiv = document.querySelector(".meal-details-div");
 const mealDetailBtn = document.querySelector(".detail-btn");
 const arrowIcon = document.getElementById("hidden");
 const mealSearchInput = document.querySelector(".searchInput");
+const mealList = document.getElementById("mealList");
+const searchList = document.querySelector(".search-list");
 let currentMeal = null;
 
 const fetchRandomMeal = async () => {
@@ -98,7 +100,6 @@ async function fetchMeals(searchTerm) {
 }
 
 function renderMeals(meals) {
-  const mealList = document.getElementById("mealList");
 
   mealList.innerHTML = meals
     .map(
@@ -107,10 +108,10 @@ function renderMeals(meals) {
       <p class="mealSearch-title">${meal.strMeal}</p>`
     )
     .join("");
+  loadSearches();
 }
 
 function displayNoResults() {
-  const mealList = document.getElementById("mealList");
   mealList.innerHTML = "<p>No meal found 😢</p>";
 }
 
@@ -130,7 +131,18 @@ function saveSearch(searchTerm) {
 
 function loadSearches() {
   const searches = JSON.parse(localStorage.getItem("mealSearches")) || [];
-  console.log("Previous searches:", searches);
+
+  searchList.innerHTML = "";
+
+  searches.forEach(search => {
+    const p = document.createElement("p");
+    p.textContent = search;
+    searchList.appendChild(p);
+    p.addEventListener("click", () => {
+      searchInput.value = search;
+      fetchMeals(search);
+    });
+  });
 }
 
 loadSearches();
