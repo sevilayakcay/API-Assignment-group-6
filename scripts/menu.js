@@ -47,7 +47,7 @@ async function loadMealsByCategory(category) {
 
       card.innerHTML = `
               <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
-              <h3>${meal.strMeal}</h3>
+              <h3 class="meal-title">${meal.strMeal}</h3>
             `;
 
       mealList.appendChild(card);
@@ -97,7 +97,10 @@ async function fetchMeals(mealNameInput) {
       const suggestionItem = document.createElement("div");
       suggestionItem.classList = "suggestion-item";
 
-      suggestionItem.innerHTML = `<img src="${meal.strMealThumb}" alt="${meal.strMeal}" />`;
+      suggestionItem.innerHTML = `
+    <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
+    <p class="meal-name">${meal.strMeal}</p>
+    <p class="meal-name">${meal.strCategory}</p>`;
 
       suggestionItem.addEventListener("click", () => {
         mealInput.value = meal.strMeal;
