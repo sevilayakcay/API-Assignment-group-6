@@ -18,27 +18,26 @@ const fetchRandomMeal = async () => {
 
     const randomMealData = await response.json();
     //console.log(randomMealData)
-    console.log(randomMealData.meals[0])
+    console.log(randomMealData.meals[0]);
     //console.log(randomMealData.meals[0].strMeal);
 
     currentMeal = randomMealData.meals[0];
 
     mealImage.setAttribute("src", currentMeal.strMealThumb);
     mealName.textContent = randomMealData.meals[0].strMeal;
-  }
-  catch (error) {
+  } catch (error) {
     console.log("Error fetching random meal: ", error);
   }
-}
+};
 
 const showMealOfDay = () => {
   mealOfDayDiv.classList.remove("hidden");
-  mealSection.classList.add("hidden")
-}
+  mealSection.classList.add("hidden");
+};
 
 const showMealDetails = () => {
   mealSection.classList.remove("hidden");
-}
+};
 
 const fetchMealDetails = () => {
   if (!currentMeal) return;
@@ -53,10 +52,7 @@ const fetchMealDetails = () => {
     }
   }
 
-  const instructionLines = instructions
-    .split("\r\n")
-    .filter(line => line.trim() !== "");
-
+  const instructionLines = instructions.split("\r\n").filter(line => line.trim() !== "");
 
   mealDetailsDiv.innerHTML = `
     <h3>Ingredients</h3>
@@ -69,15 +65,14 @@ const fetchMealDetails = () => {
       ${instructionLines.map(step => `<p>${step}</p></br>`).join("")}
     </div>
   `;
-}
+};
 
 mealButton.addEventListener("click", () => {
   showMealOfDay();
   fetchRandomMeal();
-})
+});
 
 mealDetailBtn.addEventListener("click", () => {
   showMealDetails();
   fetchMealDetails();
-})
-
+});

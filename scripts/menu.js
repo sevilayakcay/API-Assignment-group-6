@@ -43,7 +43,7 @@ async function loadMealsByCategory(category) {
 
     mealsToShow.forEach(meal => {
       const card = document.createElement("div");
-      card.className = "meal-card";
+      card.classList = "meal-card";
 
       card.innerHTML = `
               <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
@@ -71,7 +71,7 @@ mealInput.addEventListener("input", () => {
   debounceTimeout = setTimeout(() => {
     const mealNameInput = mealInput.value.trim();
     fetchMeals(mealNameInput);
-  }, 500); // 500ms bekle, kullanıcı yazmayı bitirsin
+  }, 500);
 });
 
 async function fetchMeals(mealNameInput) {
@@ -95,7 +95,7 @@ async function fetchMeals(mealNameInput) {
 
     limitedMeals.forEach(meal => {
       const suggestionItem = document.createElement("div");
-      suggestionItem.className = "suggestion-item";
+      suggestionItem.classList = "suggestion-item";
 
       suggestionItem.innerHTML = `<img src="${meal.strMealThumb}" alt="${meal.strMeal}" />`;
 
