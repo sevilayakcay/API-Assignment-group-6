@@ -1,166 +1,205 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	font-family: "Comic Neue", cursive;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Comic Neue", cursive;
 }
 
 html {
-	height: 100vh;
+  height: 100vh;
 }
 
 body {
-	height: 100%;
+  height: 100%;
+
 }
 
 .header {
-	height: 120px;
-	display: flex;
-	justify-content: space-between;
-	padding: 0 2rem 0 2rem;
-	background-color: black;
-	align-items: center;
+  height: 120px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem 0 2rem;
+  background-color: black;
+  align-items: center;
 }
 
 .logo {
-	cursor: pointer;
-	border-radius: 40%;
-	background-color: hsl(60, 9%, 77%, 0.3);
-	padding: 15px;
+  cursor: pointer;
+  border-radius: 40%;
+  background-color: hsl(60, 9%, 77%, 0.3);
+  padding: 15px;
 }
 
 .fa-solid .fa-utensils {
-	height: 60px;
-	width: 60px;
+  height: 60px;
+  width: 60px;
 }
 
 .button {
-	color: rgb(55, 49, 49);
-	background-color: hsla(53, 100%, 50%, 0.9);
-	padding: 10px;
-	font-size: 1rem;
-	border-radius: 10px;
-	text-decoration: none;
+  color: rgb(55, 49, 49);
+  background-color: hsla(53, 100%, 50%, 0.9);
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
 }
 
 .meal-btn {
-	margin: 30px;
+  margin: 30px;
+  cursor: pointer;
 }
 
 .button:hover {
-	color: rgb(253, 216, 7);
-	background-color: rgba(0, 0, 0, 0.9);
-	box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
-	border: 2px solid rgba(211, 103, 14, 0.9);
+  color: rgb(253, 216, 7);
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
+  border: 2px solid rgba(211, 103, 14, 0.9);
 }
 
 .main {
-	background-image: url("../images/foodmenu.jpg");
-	background-size: cover;
-	background-position: left;
-	background-repeat: no-repeat;
-	width: 100%;
-	height: 100%;
-	color: aliceblue;
-	display: flex;
-	letter-spacing: 0.2px;
-	flex-direction: column;
+  background-image: url("../images/foodmenu.jpg");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.2px;
+  background-attachment: fixed;
 }
 
+.searchInput {
+  color: rgb(55, 49, 49);
+  background-color: hsla(53, 100%, 50%, 0.9);
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+  border: none;
+  width: 50%;
+  margin: 1rem;
+  outline: none;
+}
+
+.search-list:hover {
+  cursor: pointer;
+
+}
+
+
 .main-content {
-	background-color: hsl(60, 9%, 77%, 0.3);
-	border-radius: 20px;
-	text-align: center;
-	max-width: 80%;
-	margin: 8rem auto auto auto;
-	padding: 1em;
+  background-color: hsl(60, 9%, 77%, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  max-width: 80%;
+  margin: 2rem auto auto auto;
+  padding: 1em;
 }
 
 .main-title {
-	font-size: 2rem;
+  font-size: 2rem;
 }
 
 .main-para {
-	font-size: 1rem;
-	line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .hidden {
-	display: none;
+  display: none;
+}
+
+#hidden {
+  display: none;
 }
 
 .meal-section {
-	background-color: black;
-	background-size: cover;
-	padding: 30px;
+  background-color: black;
+  background-size: cover;
+  padding: 30px;
 }
 
 .meal-of-the-day_div {
-	background-color: hsl(60, 9%, 77%, 0.3);
-	border-radius: 20px;
-	text-align: center;
-	max-width: 50%;
-	margin: auto;
-	padding: 1em;
+  background-color: hsl(60, 9%, 77%, 0.3);
+  border-radius: 20px;
+  text-align: center;
+  max-width: 200px;
+  margin: auto;
+  padding: 1em;
 }
 
 .meal-of-the-day_div:hover {
-	border: 2px solid rgb(255, 234, 0);
+  border: 2px solid rgb(255, 234, 0);
 }
 
 .detail-btn {
-	width: 50%;
-	margin: auto;
+  width: 70%;
+  margin: auto;
 }
 
 .meal-image {
-	width: 90%;
+  width: 90%;
+}
+
+#mealList {
+  margin-top: 20px;
+}
+
+.meal-card {
+  padding: 5px;
+  text-align: center;
+  transition: transform 0.2s ease;
 }
 
 .meal-details-div {
-	background-color: hsla(55, 100%, 50%, 0.3);
-	color: antiquewhite;
-	width: 90%;
-	margin: auto;
-	text-align: start;
-	list-style: none;
-	padding: 1rem;
-	border-radius: 10px;
+  background-color: hsla(55, 100%, 50%, 0.3);
+  color: antiquewhite;
+  width: 90%;
+  margin: auto;
+  text-align: start;
+  list-style: none;
+  padding: 1rem;
+  border-radius: 10px;
 }
 
 @media screen and (min-width:769px) {
-	.main-content {
-		max-width: 60%;
-	}
+  .main-content {
+    max-width: 60%;
+    text-align: center;
+  }
 
-	.main-title {
-		font-size: 4rem;
-	}
+  .main-title {
+    font-size: 2rem;
+  }
 
-	.main-para {
-		font-size: 2rem;
-		line-height: 1.6;
-	}
+  .main-para {
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 400px;
+    margin: auto;
+  }
 
-	.meal-of-the-day_div {
-		background-color: hsl(60, 9%, 77%, 0.3);
-		border-radius: 20px;
-		text-align: center;
-		max-width: 20%;
-		margin: auto;
-		padding: 1em;
-	}
+  .meal-of-the-day_div {
+    background-color: hsl(60, 9%, 77%, 0.3);
+    border-radius: 20px;
+    text-align: center;
+    max-width: 200px;
+    margin: auto;
+    padding: 1em;
+  }
 
-	.meal-details-div {
-		background-color: hsla(55, 100%, 50%, 0.3);
-		color: antiquewhite;
-		width: 60%;
-		margin: auto;
-		text-align: start;
-		list-style: none;
-	}
+  .meal-details-div {
+    background-color: hsla(55, 100%, 50%, 0.3);
+    color: antiquewhite;
+    width: 60%;
+    margin: auto;
+    text-align: start;
+    list-style: none;
+  }
 
-	.button {
-		font-size: 2rem;
-	}
+  .button {
+    font-size: 1.5rem;
+  }
 }

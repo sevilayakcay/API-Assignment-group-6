@@ -6,15 +6,16 @@
   letter-spacing: 0.2px;
 }
 
+
 .bg_video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
-  transform: translate(-50%, -50%);
   z-index: -1;
+  display: block;
 }
 
 .main-content {
@@ -23,6 +24,7 @@
   z-index: 1;
   text-align: center;
   color: aliceblue;
+  
 }
 
 img {
@@ -33,6 +35,11 @@ img {
 
 .display {
   padding: 1rem;
+}
+
+.hide{
+
+  display: none;
 }
 
 #input {
@@ -50,6 +57,17 @@ img {
 
 p {
   padding: 0.5rem;
+}
+
+#drinks_container{
+
+  
+  overflow: hidden;
+}
+
+#drinks_container p{
+margin: 4px 0;
+  color: white;
 }
 
 #input:hover {
