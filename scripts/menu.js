@@ -43,7 +43,7 @@ async function loadMealsByCategory(category) {
 
     mealsToShow.forEach(meal => {
       const card = document.createElement("div");
-      card.className = "meal-card";
+      card.classList = "meal-card";
 
       card.innerHTML = `
               <img src="${meal.strMealThumb}" alt="${meal.strMeal}" />
@@ -58,3 +58,56 @@ async function loadMealsByCategory(category) {
 }
 
 loadCategories();
+
+const mealInput = document.getElementById("MealInput");
+const mealSuggestions = document.getElementById("suggestions");
+const mealList = document.getElementById("mealList");
+
+let debounceTimeout;
+
+mealInput.addEventListener("input", () => {
+  clearTimeout(debounceTimeout);
+
+  debounceTimeout = setTimeout(() => {
+    const mealNameInput = mealInput.value.trim();
+    fetchMeals(mealNameInput);
+  }, 500);
+});
+
+async function fetchMeals(mealNameInput) {
+  if (!mealNameInput) {
+    mealSuggestions.innerHTML = "";
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${mealNameInput}`);
+    if (!response.ok) throw new Error("Network error");
+
+    const data = await response.json();
+    if (!data.meals) {
+      mealSuggestions.innerHTML = "";
+      return;
+    }
+
+    const limitedMeals = data.meals.slice(0, 2);
+    mealSuggestions.innerHTML = "";
+
+    limitedMeals.forEach(meal => {
+      const suggestionItem = document.createElement("div");
+      suggestionItem.classList = "suggestion-item";
+
+      suggestionItem.innerHTML = `<img src="${meal.strMealThumb}" alt="${meal.strMeal}" />`;
+
+      suggestionItem.addEventListener("click", () => {
+        mealInput.value = meal.strMeal;
+        mealSuggestions.innerHTML = "";
+        displayMeals([meal]);
+      });
+
+      mealSuggestions.appendChild(suggestionItem);
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
