@@ -37,6 +37,7 @@
         <a href="/drinks.html" class="button">Drinks</a>
       </nav>
     </header>
+    <i class="fa-solid fa-play" id="audio"></i>
     <main class="main_drinks">
       <video
         class="bg_video"
@@ -49,16 +50,18 @@
       <div class="main-content">
         <h1>Confused? 🤔🍹</h1>
         <p>We have got the drinks!🍹🍸🍺</p>
-        <div class="search">
+     
           <input
             type="text"
             id="input"
-            placeholder="Search your drink by letter (a, b, c...)"
+            placeholder="Search your drink by letter (a, b, c...)" autocomplete="off"
           />
+
+        
+        <div class="search">
+        <div id="search_history"></div>
         <i class="fa-solid fa-x" id="clear_icon"></i>
         </div>
-
-        <div id="search_history"></div>
 
         <h1 class="main-title">Explore Our Drinks</h1>
         <button class="button" id="btn-alc">Alcoholic</button>

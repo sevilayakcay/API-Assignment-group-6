@@ -7,6 +7,7 @@ const input = document.getElementById("input");
 const ingredient = document.getElementById("ingredient");
 const searchHistory = document.getElementById("search_history");
 const clearIcon = document.getElementById("clear_icon");
+const audio=document.getElementById('audio');
 
 const getAlcoholicDrink = async () => {
   console.log("clicked");
@@ -89,6 +90,8 @@ const getDrink = async () => {
     return;
   }
   localStorage.setItem("searchItem", input.value);
+  
+
 
   let exists = false;
   for (let i = 0; i < searchHistory.children.length; i++) {
@@ -97,7 +100,7 @@ const getDrink = async () => {
       break;
     }
   }
-  
+
   if (!exists) {
     const p = document.createElement("p");
     p.textContent = searchValue;
@@ -211,3 +214,9 @@ clearIcon.addEventListener("click", () => {
 
   clearLocalStorage();
 });
+
+// audio.addEventListener('click',()=>{
+
+//   const newSrc=document.createElement('audio');
+//   newSrc='./'
+// })
