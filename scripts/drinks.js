@@ -83,17 +83,34 @@ const getChefSpecial = async () => {
 const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const getDrink = async () => {
-  const p = document.createElement("p");
-  p.innerHTML = localStorage.getItem("searchItem");
-  searchHistory.appendChild(p);
-  drinksContainer.innerHTML = "";
-  let searchValue = input.value;
-  searchValue = searchValue.trim();
+  let searchValue = input.value.trim();
+
+  if (!searchValue) {
+    return;
+  }
   localStorage.setItem("searchItem", input.value);
-  localStorage.getItem("searchItem");
+
+  let exists = false;
+  for (let i = 0; i < searchHistory.children.length; i++) {
+    if (searchHistory.children[i].textContent === searchValue) {
+      exists = true;
+      break;
+    }
+  }
+  
+  if (!exists) {
+    const p = document.createElement("p");
+    p.textContent = searchValue;
+    searchHistory.appendChild(p);
+
+    while (searchHistory.children.length > 5) {
+      searchHistory.removeChild(searchHistory.firstChild);
+    }
+  }
   console.log(localStorage.getItem("searchItem"));
 
-  if (!searchValue) return;
+  drinksContainer.innerHTML = "";
+
   const api = `${baseUrl}${searchValue}`;
   try {
     const response = await fetch(api);
@@ -169,9 +186,15 @@ const getIngredient = async () => {
 };
 
 let typingTimer;
-input.addEventListener("input", () => {
+const typingDelay = 500;
+
+input.addEventListener("input", (e) => {
   clearTimeout(typingTimer);
-  typingTimer = setTimeout(getDrink, 500);
+  const searchValue = e.target.value.trim().slice(0, 1);
+  e.target.value = searchValue;
+  if (!searchValue) return;
+
+  typingTimer = setTimeout(() => getDrink(), typingDelay);
 });
 ingredient.addEventListener("click", () => {
   ingredient.classList.add("hide");
