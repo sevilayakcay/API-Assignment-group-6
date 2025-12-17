@@ -32,6 +32,12 @@
     <main class="main">
       <div class="main-content">
         <h1 class="main-title">WELCOME TO OUR RESTAURANT</h1>
+        
+        <p class="main-para">
+          Welcome to our cosy corner of good food and comfort. Here, time slows
+          down, flavors speak louder, and every smile matters. Sit back, unwind,
+          and enjoy.
+        </p>
         <input
           type="text"
           name="searchInput"
@@ -40,11 +46,6 @@
           placeholder="search for meal...."
         />
         <div class="search-list"></div>
-        <p class="main-para">
-          Welcome to our cosy corner of good food and comfort. Here, time slows
-          down, flavors speak louder, and every smile matters. Sit back, unwind,
-          and enjoy.
-        </p>
         <div id="mealList"></div>
         <button class="button meal-btn">Meal of the day</button>
         <div class="meal-of-the-day_div hidden">
@@ -57,10 +58,11 @@
           class="fa-solid fa-arrow-down fa-beat-fade fa-3x"
           style="color: #ffd43b"
         ></i>
+        <section class="meal-section hidden">
+          <div class="meal-details-div"></div>
+        </section>
       </div>
     </main>
-    <section class="meal-section hidden">
-      <div class="meal-details-div"></div>
-    </section>
+
   </body>
 </html>
