@@ -167,7 +167,15 @@ const getIngredient = async () => {
   }
 
 };
-input.addEventListener("keyup", getDrink);
+
+let typingTimer
+input.addEventListener("input", ()=>{
+
+  clearTimeout(typingTimer)
+  typingTimer = setTimeout(getDrink, 500)
+ 
+
+});
 ingredient.addEventListener("click",()=>{
 
 ingredient.classList.add('hide');
