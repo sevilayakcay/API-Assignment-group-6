@@ -6,7 +6,6 @@
   letter-spacing: 0.2px;
 }
 
-
 .bg_video {
   position: fixed;
   top: 0;
@@ -24,7 +23,6 @@
   z-index: 1;
   text-align: center;
   color: aliceblue;
-  
 }
 
 img {
@@ -37,9 +35,24 @@ img {
   padding: 1rem;
 }
 
-.hide{
-
+.hide {
   display: none;
+}
+
+.ingredient_btn {
+  color: rgb(55, 49, 49);
+  background-color: hsla(53, 100%, 50%, 0.9);
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.ingredient_btn:hover {
+  color: rgb(253, 216, 7);
+  background-color: rgba(0, 0, 0, 0.9);
+  box-shadow: 0 2px 30px rgba(211, 103, 14, 0.9);
+  border: 2px solid rgba(211, 103, 14, 0.9);
 }
 
 #input {
@@ -55,18 +68,51 @@ img {
   outline: none;
 }
 
+.search {
+  position: relative;
+}
+
+#clear_icon {
+  position: absolute;
+  right: 10px;
+  bottom: 0px;
+  cursor: pointer;
+  font-size: 18px;
+  color: aliceblue;
+}
+
+#clear_icon:hover{
+
+  color: rgba(211, 103, 14, 0.9);
+}
+
+#search_history {
+  margin-top: 8px;
+  background-color: hsla(53, 100%, 50%, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  position: relative;
+}
+
+#search_history {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
 p {
   padding: 0.5rem;
 }
 
-#drinks_container{
-
-  
+#drinks_container {
   overflow: hidden;
 }
 
-#drinks_container p{
-margin: 4px 0;
+#drinks_container p {
+  margin: 4px 0;
   color: white;
 }
 

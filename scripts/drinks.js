@@ -6,6 +6,8 @@ const mainContent = document.querySelector(".main-content");
 const drinksContainer = document.getElementById("drinks_container");
 const input = document.getElementById("input");
 const ingredient = document.getElementById("ingredient");
+const searchHistory=document.getElementById('search_history');
+const clearIcon=document.getElementById('clear_icon');
 
 const getAlcoholicDrink = async () => {
   console.log("clicked");
@@ -82,9 +84,18 @@ const getChefSpecial = async () => {
 const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const getDrink = async () => {
+
+
+  const p =document.createElement('p');
+  p.innerHTML=   localStorage.getItem('searchItem');
+  searchHistory.appendChild(p);
   drinksContainer.innerHTML = "";
   let searchValue = input.value;
   searchValue = searchValue.trim();
+  localStorage.setItem('searchItem',input.value);
+  localStorage.getItem('searchItem');
+  console.log(localStorage.getItem('searchItem'));
+ 
   if (!searchValue) return;
   const api = `${baseUrl}${searchValue}`;
   try {
@@ -159,7 +170,41 @@ const getIngredient = async () => {
 input.addEventListener("keyup", getDrink);
 ingredient.addEventListener("click",()=>{
 
-  ingredient.classList.add('hide');
+ingredient.classList.add('hide');
   getIngredient();
 
 } );
+
+
+// const updateClearIcon=()=>{
+
+// if(searchHistory.children.length>0){
+
+//     clearIcon.classList.add('show');
+//   }
+//   else{
+
+//     clearIcon.classList.remove('show');
+//   }
+// }
+
+const clearLocalStorage=()=>{
+
+  searchHistory.innerHTML='';
+  localStorage.removeItem('searchItem');
+
+
+  
+  
+  
+  
+}
+
+clearIcon.addEventListener('click',()=>{
+
+  console.log('clicked');
+
+  clearLocalStorage();
+  
+  
+})
