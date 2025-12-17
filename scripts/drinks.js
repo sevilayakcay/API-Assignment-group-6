@@ -1,4 +1,3 @@
-//alert("drinks!");
 const btnAlcoholic = document.getElementById("btn-alc");
 const btnNonAlcoholic = document.getElementById("btn-non-alc");
 const btnChefSpecial = document.getElementById("btn-chef-spec");
@@ -6,8 +5,8 @@ const mainContent = document.querySelector(".main-content");
 const drinksContainer = document.getElementById("drinks_container");
 const input = document.getElementById("input");
 const ingredient = document.getElementById("ingredient");
-const searchHistory=document.getElementById('search_history');
-const clearIcon=document.getElementById('clear_icon');
+const searchHistory = document.getElementById("search_history");
+const clearIcon = document.getElementById("clear_icon");
 
 const getAlcoholicDrink = async () => {
   console.log("clicked");
@@ -84,18 +83,16 @@ const getChefSpecial = async () => {
 const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const getDrink = async () => {
-
-
-  const p =document.createElement('p');
-  p.innerHTML=   localStorage.getItem('searchItem');
+  const p = document.createElement("p");
+  p.innerHTML = localStorage.getItem("searchItem");
   searchHistory.appendChild(p);
   drinksContainer.innerHTML = "";
   let searchValue = input.value;
   searchValue = searchValue.trim();
-  localStorage.setItem('searchItem',input.value);
-  localStorage.getItem('searchItem');
-  console.log(localStorage.getItem('searchItem'));
- 
+  localStorage.setItem("searchItem", input.value);
+  localStorage.getItem("searchItem");
+  console.log(localStorage.getItem("searchItem"));
+
   if (!searchValue) return;
   const api = `${baseUrl}${searchValue}`;
   try {
@@ -114,8 +111,6 @@ const getDrink = async () => {
   }
 };
 
-// const getIngredient()
-
 btnAlcoholic.addEventListener("click", getAlcoholicDrink);
 btnNonAlcoholic.addEventListener("click", getNonAlcoholicDrink);
 btnChefSpecial.addEventListener("click", () => {
@@ -124,95 +119,72 @@ btnChefSpecial.addEventListener("click", () => {
 });
 
 const getIngredient = async () => {
-  // drinksContainer.innerHTML = "";
-
-  try{
-
+  try {
     const response = await fetch(
-    "https://www.thecocktaildb.com/api/json/v1/1/random.php"
-  );
+      "https://www.thecocktaildb.com/api/json/v1/1/random.php"
+    );
 
-  
-  const data = await response.json();
-  const ingredient1 = data.drinks[0].strIngredient1;
-  const ingredient2 = data.drinks[0].strIngredient2;
-  const ingredient3 = data.drinks[0].strIngredient3;
-  const ingredient4 = data.drinks[0].strIngredient4;
-  console.log(ingredient1);
-  console.log(ingredient2);
-  console.log(ingredient3);
-  console.log(ingredient4);
+    const data = await response.json();
+    const ingredient1 = data.drinks[0].strIngredient1;
+    const ingredient2 = data.drinks[0].strIngredient2;
+    const ingredient3 = data.drinks[0].strIngredient3;
+    const ingredient4 = data.drinks[0].strIngredient4;
+    console.log(ingredient1);
+    console.log(ingredient2);
+    console.log(ingredient3);
+    console.log(ingredient4);
 
-  if(!ingredient){
+    if (!ingredient) {
+      return;
+    }
 
-    return;
+    const displayList = document.createElement("div");
+    displayList.innerHTML = `
+  ${
+    data.drinks[0].strIngredient1
+      ? `<p>${data.drinks[0].strIngredient1}</p>`
+      : ""
   }
-
-  const displayList=document.createElement('div');
-  displayList.innerHTML=`
-  ${data.drinks[0].strIngredient1 ? `<p>${data.drinks[0].strIngredient1}</p>`:''}
-  ${data.drinks[0].strIngredient2 ? `<p>${data.drinks[0].strIngredient2}</p>`:''}
-  ${data.drinks[0].strIngredient3 ? `<p>${data.drinks[0].strIngredient3}</p>`:''}
-  ${data.drinks[0].strIngredient4 ? `<p>${data.drinks[0].strIngredient4}</p>`:''}
-  `
-
-  
-  drinksContainer.appendChild(displayList);
-
+  ${
+    data.drinks[0].strIngredient2
+      ? `<p>${data.drinks[0].strIngredient2}</p>`
+      : ""
   }
-  
-  catch(error){
-
-    console.log('Error:',error);
+  ${
+    data.drinks[0].strIngredient3
+      ? `<p>${data.drinks[0].strIngredient3}</p>`
+      : ""
   }
+  ${
+    data.drinks[0].strIngredient4
+      ? `<p>${data.drinks[0].strIngredient4}</p>`
+      : ""
+  }
+  `;
 
+    drinksContainer.appendChild(displayList);
+  } catch (error) {
+    console.log("Error:", error);
+  }
 };
 
-let typingTimer
-input.addEventListener("input", ()=>{
-
-  clearTimeout(typingTimer)
-  typingTimer = setTimeout(getDrink, 500)
- 
-
+let typingTimer;
+input.addEventListener("input", () => {
+  clearTimeout(typingTimer);
+  typingTimer = setTimeout(getDrink, 500);
 });
-ingredient.addEventListener("click",()=>{
-
-ingredient.classList.add('hide');
+ingredient.addEventListener("click", () => {
+  ingredient.classList.add("hide");
   getIngredient();
+});
 
-} );
+const clearLocalStorage = () => {
+  searchHistory.innerHTML = "";
+  localStorage.removeItem("searchItem");
+};
 
-
-// const updateClearIcon=()=>{
-
-// if(searchHistory.children.length>0){
-
-//     clearIcon.classList.add('show');
-//   }
-//   else{
-
-//     clearIcon.classList.remove('show');
-//   }
-// }
-
-const clearLocalStorage=()=>{
-
-  searchHistory.innerHTML='';
-  localStorage.removeItem('searchItem');
-
-
-  
-  
-  
-  
-}
-
-clearIcon.addEventListener('click',()=>{
-
-  console.log('clicked');
+clearIcon.addEventListener("click", () => {
+  console.log("clicked");
 
   clearLocalStorage();
-  
-  
-})
+});
