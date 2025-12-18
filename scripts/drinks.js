@@ -7,29 +7,24 @@ const input = document.getElementById("input");
 const ingredient = document.getElementById("ingredient");
 const searchHistory = document.getElementById("search_history");
 const clearIcon = document.getElementById("clear_icon");
-const audioIcon=document.getElementById('audio_icon');
+const audioIcon = document.getElementById("audio_icon");
 console.log(audioIcon);
 
-let isPlaying=false;
-const audio = new Audio('sound/drink_bgSound.wav'); 
+let isPlaying = false;
+const audio = new Audio("sound/drink_bgSound.wav");
 
-audioIcon.addEventListener('click', () => {
+audioIcon.addEventListener("click", () => {
+  if (!isPlaying) {
+    console.log("clicked");
 
-  if(!isPlaying){
-  console.log('clicked');
-  
-  audio.play();
-  }
-  else{
-
+    audio.play();
+  } else {
     audio.pause();
-    audio.clearTime=0;
+    audio.clearTime = 0;
   }
 
-  isPlaying=!isPlaying;
-  
+  isPlaying = !isPlaying;
 });
-
 
 const getAlcoholicDrink = async () => {
   console.log("clicked");
@@ -106,9 +101,6 @@ const getChefSpecial = async () => {
 const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const getDrink = async () => {
-  
-  
- 
   let searchValue = input.value.trim();
 
   if (!searchValue) {
@@ -140,12 +132,10 @@ const getDrink = async () => {
     `;
 
     drinksContainer.appendChild(display);
-
   } catch (error) {
     console.log("Error:", error);
   }
 };
-
 
 btnAlcoholic.addEventListener("click", getAlcoholicDrink);
 btnNonAlcoholic.addEventListener("click", getNonAlcoholicDrink);
@@ -205,11 +195,8 @@ const getIngredient = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
-
-  
   renderSearchHistory();
 });
-
 
 const renderSearchHistory = () => {
   searchHistory.innerHTML = "";
@@ -222,8 +209,6 @@ const renderSearchHistory = () => {
     searchHistory.appendChild(p);
   }
 };
-
-
 
 const loadLocalStorage = () => {
   const searchValue = input.value.trim();
@@ -280,5 +265,3 @@ clearIcon.addEventListener("click", () => {
 
   clearLocalStorage();
 });
-
-

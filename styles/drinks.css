@@ -25,8 +25,7 @@
   color: aliceblue;
 }
 
-#audio{
-
+#audio {
   color: hsla(53, 100%, 50%, 0.9);
   font-size: 1rem;
 }
@@ -75,34 +74,28 @@ img {
 }
 
 .search {
-  
   width: 50%;
   display: flex;
   position: relative;
- justify-content: center;
- align-items:center;
- margin: auto;
-
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 #clear_icon {
-
   cursor: pointer;
   font-size: 15px;
   color: aliceblue;
- 
 }
 
-#clear_icon:hover{
-
+#clear_icon:hover {
   color: rgba(211, 103, 14, 0.9);
 }
 
 #search_history {
-
   background-color: rgba(0, 0, 0, 0.9);
   padding: 10px;
-  width: 50%; 
+  width: 50%;
   border-radius: 5px;
   max-height: 100px;
   overflow-y: auto;
@@ -112,8 +105,7 @@ img {
   margin-top: 8px;
 }
 
-#audio_icon{
-
+#audio_icon {
   background: none;
   border: none;
   cursor: pointer;
@@ -125,7 +117,7 @@ img {
   display: block;
   left: 0px;
   top: 20%;
-  
+
   transform: translateY(-50%);
 }
 
@@ -158,12 +150,9 @@ p {
     margin-bottom: 1rem;
   }
 
-  #audio_icon{
-
+  #audio_icon {
     display: block;
 
     font-size: 30px;
   }
-
-  
 }
