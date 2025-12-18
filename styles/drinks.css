@@ -69,8 +69,8 @@ img {
   border-radius: 10px;
   text-decoration: none;
   border: none;
-  width: 50%;
-  margin: 1rem;
+  width: 90%;
+  margin: 0.5rem;
   outline: none;
 }
 
@@ -87,12 +87,9 @@ img {
 
 #clear_icon {
 
-
-
   cursor: pointer;
   font-size: 15px;
   color: aliceblue;
- 
  
 }
 
@@ -102,7 +99,7 @@ img {
 }
 
 #search_history {
-  /* margin: 0 auto; */
+
   background-color: hsla(53, 100%, 50%, 0.9);
   padding: 10px;
   width: 50%; 
@@ -113,6 +110,16 @@ img {
   display: flex;
   flex-wrap: wrap;
   margin-top: 8px;
+}
+
+#audio_icon{
+
+  fill: hsla(53, 100%, 50%, 0.9);
+   cursor: pointer;
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 

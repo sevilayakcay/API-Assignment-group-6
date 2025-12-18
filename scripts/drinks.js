@@ -84,52 +84,46 @@ const getChefSpecial = async () => {
 const baseUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 const getDrink = async () => {
+  
+  
+ 
   let searchValue = input.value.trim();
 
   if (!searchValue) {
     return;
   }
-  localStorage.setItem("searchItem", input.value);
-  
-
-
-  let exists = false;
-  for (let i = 0; i < searchHistory.children.length; i++) {
-    if (searchHistory.children[i].textContent === searchValue) {
-      exists = true;
-      break;
-    }
-  }
-
-  if (!exists) {
-    const p = document.createElement("p");
-    p.textContent = searchValue;
-    searchHistory.appendChild(p);
-
-    while (searchHistory.children.length > 5) {
-      searchHistory.removeChild(searchHistory.firstChild);
-    }
-  }
-  console.log(localStorage.getItem("searchItem"));
 
   drinksContainer.innerHTML = "";
 
   const api = `${baseUrl}${searchValue}`;
+
   try {
     const response = await fetch(api);
+
     if (!response.ok) {
       throw new Error("Network response was not ok");
     }
+
     const data = await response.json();
 
+    if (!data.drinks) {
+      drinksContainer.innerHTML = "<p>No drink found</p>";
+      return;
+    }
+
     const display = document.createElement("div");
-    display.innerHTML = `<img src='${data.drinks[0].strDrinkThumb}'
-    <p>${data.drinks[0].strDrink}</p>`;
+    display.innerHTML = `
+      <img src="${data.drinks[0].strDrinkThumb}" />
+      <p>${data.drinks[0].strDrink}</p>
+    `;
+
     drinksContainer.appendChild(display);
+
   } catch (error) {
     console.log("Error:", error);
   }
 };
+
 
 btnAlcoholic.addEventListener("click", getAlcoholicDrink);
 btnNonAlcoholic.addEventListener("click", getNonAlcoholicDrink);
@@ -188,6 +182,52 @@ const getIngredient = async () => {
   }
 };
 
+document.addEventListener("DOMContentLoaded", () => {
+  renderSearchHistory();
+});
+
+
+const renderSearchHistory = () => {
+  searchHistory.innerHTML = "";
+
+  const history = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+  for (let i = 0; i < history.length; i++) {
+    const p = document.createElement("p");
+    p.innerHTML = history[i];
+    searchHistory.appendChild(p);
+  }
+};
+
+
+
+const loadLocalStorage = () => {
+  const searchValue = input.value.trim();
+  if (!searchValue) return;
+
+  let history = JSON.parse(localStorage.getItem("searchHistory")) || [];
+
+  let exists = false;
+  for (let i = 0; i < history.length; i++) {
+    if (history[i] === searchValue) {
+      exists = true;
+      break;
+    }
+  }
+
+  if (!exists) {
+    history.push(searchValue);
+
+    if (history.length > 5) {
+      history.shift();
+    }
+
+    localStorage.setItem("searchHistory", JSON.stringify(history));
+  }
+
+  renderSearchHistory();
+};
+
 let typingTimer;
 const typingDelay = 500;
 
@@ -198,6 +238,8 @@ input.addEventListener("input", (e) => {
   if (!searchValue) return;
 
   typingTimer = setTimeout(() => getDrink(), typingDelay);
+
+  loadLocalStorage();
 });
 ingredient.addEventListener("click", () => {
   ingredient.classList.add("hide");
