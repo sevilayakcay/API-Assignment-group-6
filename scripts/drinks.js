@@ -7,7 +7,29 @@ const input = document.getElementById("input");
 const ingredient = document.getElementById("ingredient");
 const searchHistory = document.getElementById("search_history");
 const clearIcon = document.getElementById("clear_icon");
-const audio=document.getElementById('audio');
+const audioIcon=document.getElementById('audio_icon');
+console.log(audioIcon);
+
+let isPlaying=false;
+const audio = new Audio('sound/drink_bgSound.wav'); 
+
+audioIcon.addEventListener('click', () => {
+
+  if(!isPlaying){
+  console.log('clicked');
+  
+  audio.play();
+  }
+  else{
+
+    audio.pause();
+    audio.clearTime=0;
+  }
+
+  isPlaying=!isPlaying;
+  
+});
+
 
 const getAlcoholicDrink = async () => {
   console.log("clicked");
@@ -183,6 +205,8 @@ const getIngredient = async () => {
 };
 
 document.addEventListener("DOMContentLoaded", () => {
+
+  
   renderSearchHistory();
 });
 
@@ -257,8 +281,4 @@ clearIcon.addEventListener("click", () => {
   clearLocalStorage();
 });
 
-// audio.addEventListener('click',()=>{
 
-//   const newSrc=document.createElement('audio');
-//   newSrc='./'
-// })
