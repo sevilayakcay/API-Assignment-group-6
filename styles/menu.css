@@ -74,6 +74,32 @@
 	border-radius: 12px;
 }
 
+.meal-name {
+	background-color: black;
+	color: aliceblue;
+}
+
+.meal-title {
+	color: white;
+	background-color: black;
+}
+
+.category-description {
+	max-width: 600px;
+	margin: 6px auto;
+	padding: 12px 16px;
+	font-size: 1.5rem;
+	line-height: 1.6;
+	color: aliceblue;
+	background-color: #000000;
+	border-radius: 5px;
+	box-shadow: 0 2px 5px hsla(0, 0%, 0%, 0.5);
+	word-wrap: break-word;
+	overflow: hidden;
+	text-align: justify;
+
+}
+
 @media screen and (min-width:769px) {
 	.category-buttons {
 		grid-template-columns: repeat(2, 1fr);
